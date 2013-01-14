@@ -19,5 +19,4 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "github-markup"
   gem.add_dependency "github-markdown"
-  gem.add_dependency "redcarpet"
 end
