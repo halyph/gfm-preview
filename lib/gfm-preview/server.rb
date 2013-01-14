@@ -19,7 +19,8 @@ module GfmPreview
           content = GitHub::Markup.render(file_path)
           open(File.join(File.dirname(__FILE__), '..', 'templates', 'base.html.erb')) { |file|
             erb = ERB.new(file.read)
-            res.body = erb.result(binding)
+            body = erb.result(binding)
+            res.body = body
             res.content_type = 'text/html; charset=uft-8'
           }
         end
