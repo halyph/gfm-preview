@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+#
+#  Created on 2013-1-14.
+#  Copyright (c) 2013. All rights reserved.
+
+lib_dir = File.join(File.dirname(__FILE__), '..', 'lib')
+$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir)
+
+require "gfm-preview/cli"
+
+GfmPreview::CLI.execute(STDOUT, ARGV)
