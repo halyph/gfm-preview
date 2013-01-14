@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["yusuke@fujikkys.com"]
   gem.description   = %q{GFM (GitHub Flavored Markdown) Preview Server.}
   gem.summary       = %q{GFM Preview Server}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/fujikky/gfm-preview"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
