@@ -19,8 +19,7 @@ module GfmPreview
             res.body = body
             res.content_type = 'text/html; charset=uft-8'
           }
-        elsif req.path == '/bootstrap-combined.min.css' or
-              req.path == '/markdown-body.css'
+        elsif req.path =~ /^\/gfm-preview\//
           WEBrick::HTTPServlet::FileHandler.new(@server, File.join(File.dirname(__FILE__), '..', 'public')).service(req, res)
         else
           WEBrick::HTTPServlet::FileHandler.new(@server, path, {:FancyIndexing => true}).service(req, res)
