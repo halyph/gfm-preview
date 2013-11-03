@@ -1,4 +1,4 @@
-# gfm-previw
+# gfm-preview
 
 GFM (Github Flavored Markdown) preview server.
 
