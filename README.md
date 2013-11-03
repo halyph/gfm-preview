@@ -2,23 +2,15 @@
 
 GFM (Github Flavored Markdown) preview server.
 
-## installation
+## Installation
 
-add this line to your application's gemfile:
-
-    gem 'gfm-preview'
-
-and then execute:
-
-    $ bundle
-
-or install it yourself as:
+Install it yourself as:
 
     $ gem install gfm-preview
 
-## usage
+## Usage
 
-start preview server:
+Start preview server:
 
     $ gfm-preview [options] [source_dir]
     Options are:
