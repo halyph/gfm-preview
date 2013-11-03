@@ -6,9 +6,10 @@ module GfmPreview
     def self.execute(stdout, arguments=[])
 
       options = {
-        :source_dir  => '.',
-        :address     => '127.0.0.1',
-        :port        => '10080'
+        :source_dir   => '.',
+        :address      => '127.0.0.1',
+        :port         => '10080',
+        :open_browser => true
       }
       mandatory_options = %w(  )
 
@@ -20,8 +21,9 @@ module GfmPreview
           Options are:
         BANNER
         opts.on("-a [address]", "--address", "Default: 127.0.0.1") { |v| options[:address] = v }
-        opts.on("-p [port]", "--port", "Default: 10080") { |v| options[:port] = v }
-        opts.on("-h", "--help", "Show this help message.") { stdout.puts opts; exit }
+        opts.on("-p [port]",    "--port",    "Default: 10080") { |v| options[:port] = v }
+        opts.on("-n",           "--no-open", "Do not open browser") { |v| options[:open_browser] = false }
+        opts.on("-h",           "--help",    "Show this help message") { stdout.puts opts; exit }
         opts.parse!(ARGV)
         options[:source_dir] = ARGV[0] if ARGV[0]
 
@@ -30,8 +32,15 @@ module GfmPreview
         end
       end
 
-      server = Server.new
+      if options[:open_browser] && system("which open")
+        pid = fork
+        if pid.nil?
+          exec("open http://localhost:#{options[:port]}/")
+          exit!(0)
+        end
+      end
 
+      server = Server.new
       trap(:INT){server.shutdown}
       server.start(options[:source_dir], options[:address], options[:port])
 

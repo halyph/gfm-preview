@@ -16,6 +16,7 @@ Start preview server:
     Options are:
         -a, --address [address]          Default: 127.0.0.1
         -p, --port [port]                Default: 10080
-        -h, --help                       Show this help message.
+        -n, --no-open                    Do not open browser
+        -h, --help                       Show this help message
 
 ```C-c``` to shutdown the preview server.
