@@ -35,7 +35,7 @@ module GfmPreview
       if options[:open_browser] && system("which open")
         pid = fork
         if pid.nil?
-          exec("open http://localhost:#{options[:port]}/")
+          exec("open http://#{options[:address]}:#{options[:port]}/")
           exit!(0)
         end
       end
